@@ -17,10 +17,15 @@
 
 ## 程序结构
 Open_Cell/
+
 ├── build.bat          # 程序打包脚本
+
 ├── install_deps.bat   # 依赖安装脚本
+
 ├── OpenCv_cell.py     # 主程序源代码
+
 ├── icno.ico           # 程序图标
+
 └── README.md          # 说明文档
 
 ## 使用说明
