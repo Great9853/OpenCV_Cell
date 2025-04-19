@@ -280,19 +280,24 @@ class MainWindow:
         if not self.test_records:
             return
             
-        file_path = filedialog.asksaveasfilename(
-            defaultextension=".xlsx",
-            filetypes=[("Excel文件", "*.xlsx")],
-            initialfile="all_test_records.xlsx"
-        )
-        
-        if file_path:
-            # 转换记录格式为DataFrame
-            data = {key: [record[key] for record in self.test_records] 
-                   for key in self.test_records[0].keys()}
-            df = pd.DataFrame(data)
-            df.to_excel(file_path, index=False)
-            messagebox.showinfo("保存成功", f"已保存{len(self.test_records)}条记录!")
+        try:
+            file_path = filedialog.asksaveasfilename(
+                defaultextension=".xlsx",
+                filetypes=[("Excel文件", "*.xlsx")],
+                initialfile="all_test_records.xlsx"
+            )
+            
+            if file_path:
+                # 转换记录格式为DataFrame
+                data = {key: [record[key] for record in self.test_records] 
+                       for key in self.test_records[0].keys()}
+                df = pd.DataFrame(data)
+                df.to_excel(file_path, index=False)
+                messagebox.showinfo("保存成功", f"已保存{len(self.test_records)}条记录!")
+        except ImportError:
+            messagebox.showerror("错误", "缺少openpyxl模块，请运行install_deps.bat安装依赖")
+        except Exception as e:
+            messagebox.showerror("错误", f"保存失败: {str(e)}")
 
     def show_help_manual(self):
         """显示帮助手册"""
