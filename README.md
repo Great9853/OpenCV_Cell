@@ -30,9 +30,9 @@ Open_Cell/
 
 ## 使用说明
 1. 安装依赖：
-   - 运行`install_deps.bat`自动安装所需Python库
+   - 运行`install_deps.bat`仅自动安装所需Python库
 2. 打包程序：
-   - 运行`build.bat`生成可执行文件
+   - 运行`build.bat`安装依赖且生成可执行文件
 3. 运行程序：
    - 生成的EXE文件位于`dist`目录下
 
